@@ -1,4 +1,8 @@
+pub use sys::SystemClock;
+
 use std::time::SystemTime;
+
+mod sys;
 
 /// Simple clock.
 pub trait Clock {
