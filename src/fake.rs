@@ -40,6 +40,8 @@ impl FakeClock {
 }
 
 /// Create a new [`FakeClock`] with the time `2015-05-15T00:00:00 UTC`.
+///
+/// [`FakeClock`]: struct.FakeClock.html
 impl Default for FakeClock {
     fn default() -> Self {
         Self::from(Duration::from_millis(DEFAULT_MILLIS_SINCE_EPOCH))
