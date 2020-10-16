@@ -31,6 +31,12 @@ impl FakeClock {
         let mut t = self.t.write().unwrap();
         *t += duration;
     }
+
+    /// Set the time of the clock.
+    pub fn set(&self, value: SystemTime) {
+        let mut t = self.t.write().unwrap();
+        *t = value;
+    }
 }
 
 impl Debug for FakeClock {
@@ -111,5 +117,15 @@ mod tests {
         let clock = FakeClock::from(now);
         clock.advance(Duration::from_nanos(1));
         assert_eq!(clock.now(), now + Duration::from_nanos(1));
+    }
+
+    #[test]
+    fn set_time() {
+        let clock = FakeClock::default();
+        let t = SystemTime::now();
+        assert_ne!(clock.now(), t);
+
+        clock.set(t);
+        assert_eq!(clock.now(), t);
     }
 }
