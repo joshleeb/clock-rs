@@ -1,6 +1,5 @@
 use crate::Clock;
 use std::{
-    fmt::{self, Debug},
     sync::RwLock,
     time::{Duration, SystemTime, UNIX_EPOCH},
 };
@@ -13,6 +12,7 @@ use std::{
 const DEFAULT_MILLIS_SINCE_EPOCH: u64 = 1431648000000;
 
 /// Fake clock.
+#[derive(Debug)]
 pub struct FakeClock {
     t: RwLock<SystemTime>,
 }
@@ -36,12 +36,6 @@ impl FakeClock {
     pub fn set(&self, value: SystemTime) {
         let mut t = self.t.write().unwrap();
         *t = value;
-    }
-}
-
-impl Debug for FakeClock {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "FakeClock")
     }
 }
 
