@@ -18,14 +18,6 @@ pub struct FakeClock {
 }
 
 impl FakeClock {
-    /// Create a new [`FakeClock`] with the provided duration since [`UNIX_EPOCH`].
-    ///
-    /// [`FakeClock`]: struct.FakeClock.html
-    /// [`UNIX_EPOCH`]: http://doc.rust-lang.org/std/time/constant.UNIX_EPOCH.html
-    pub fn new(t: SystemTime) -> Self {
-        Self { t: RwLock::new(t) }
-    }
-
     /// Advance the clock by `duration`.
     pub fn advance(&self, duration: Duration) {
         let mut t = self.t.write().unwrap();
