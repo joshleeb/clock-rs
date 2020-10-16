@@ -7,7 +7,7 @@ mod fake;
 mod sys;
 
 /// Simple clock.
-pub trait Clock {
+pub trait Clock: Send + Sync {
     /// Returns the time corresponding to "now".
     fn now(&self) -> SystemTime;
 }
