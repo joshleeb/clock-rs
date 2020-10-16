@@ -1,7 +1,9 @@
+pub use fake::FakeClock;
 pub use sys::SystemClock;
 
 use std::time::SystemTime;
 
+mod fake;
 mod sys;
 
 /// Simple clock.
