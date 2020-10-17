@@ -6,6 +6,7 @@ license = "MIT"
 description = "Simple clock"
 readme = "README.md"
 homepage = "https://github.com/joshleeb/clock-rs"
+repository = "https://github.com/joshleeb/clock-rs"
 keywords = ["clock", "time"]
 categories = ["date-and-time"]
 edition = "2018"
